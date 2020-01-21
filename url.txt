@@ -1,0 +1,3 @@
+url = "https://api.edamam.com/search?q={$query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}"
+api_id = 1a409636
+api_key = 832b995a946c06d3b30dab4fabdd1b66
