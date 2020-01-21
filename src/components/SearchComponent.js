@@ -17,20 +17,23 @@ class Search extends Component{
         const res = this.state.results.hits.map((result)=>{
             
             return (
+                <div className="col-12 col-sm-3  center border-black">
                 <Card>
                 <CardTitle>{result.recipe.label}</CardTitle>
-                <CardImg top src={result.recipe.image} alt={result.recipe.label} height="100px" width="100px"/>
-                <CardBody>
+                <CardImg top src={result.recipe.image} alt={result.recipe.label} height="100px" width="90px"/>
+                {/* <CardBody>
                     <CardText>{result.recipe.ingredientLines}</CardText>
-                </CardBody>
+                </CardBody> */}
                 </Card>
+                </div>
             );
         });
-        return (<div>
-            <div className="col-12 col-md-5 mt-2 mb-2 center">
+        return (
+            <div className="row">
             {res}
             </div>
-        </div>);
+           
+        );
     }
 }
 

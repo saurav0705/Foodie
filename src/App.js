@@ -1,6 +1,7 @@
 import React , {Component} from 'react';
 import './App.css';
 import Search from './components/SearchComponent';
+import {Navbar ,  NavbarBrand } from 'reactstrap';
 
 class App extends Component {
   constructor(props){
@@ -10,11 +11,15 @@ class App extends Component {
 
   render(){
   return (
-    <div className="container">
-      <h1>FOODIE</h1>
-      <div className="row">
+    <div>
+    <Navbar dark color="primary">
+        <NavbarBrand href="\">FOODIE</NavbarBrand>
+      </Navbar>
+    <div className="container-fluid">
+     
      <Search />
-     </div>
+  
+    </div>
     </div>
   );}
 }
