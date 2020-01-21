@@ -1,7 +1,8 @@
 import React , {Component} from 'react';
 import './App.css';
 import Search from './components/SearchComponent';
-import {Navbar ,  NavbarBrand } from 'reactstrap';
+import {Navbar ,  NavbarBrand ,NavItem } from 'reactstrap';
+import SearchBar from './components/SearchBarComponent';
 
 class App extends Component {
   constructor(props){
@@ -13,7 +14,9 @@ class App extends Component {
   return (
     <div>
     <Navbar dark color="primary">
-        <NavbarBrand href="\">FOODIE</NavbarBrand>
+        <NavbarBrand href="\" ><img src=""/> FOODIE</NavbarBrand>
+          <SearchBar />
+
       </Navbar>
     <div className="container-fluid">
      
