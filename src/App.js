@@ -1,28 +1,33 @@
 import React , {Component} from 'react';
 import './App.css';
-import Search from './components/SearchComponent';
-import {Navbar ,  NavbarBrand ,NavItem } from 'reactstrap';
+
+import {Navbar ,  NavbarBrand} from 'reactstrap';
 import SearchBar from './components/SearchBarComponent';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-  }
+  
 
 
   render(){
   return (
-    <div>
-    <Navbar dark color="primary">
-        <NavbarBrand href="\" ><img src=""/> FOODIE</NavbarBrand>
-          <SearchBar />
+    
+    <div className="main">
+      <center>
+    <Navbar dark color="primary" className="bg-success">
+      
+        <span className="font-weight-bold justify-center head ml-4 title text-white w-100"><h1><center>FOODIE HAI HUM</center></h1></span>
+        
+        </Navbar>
+        <SearchBar />
+        <div className="container-fluid">
+        <div className="row">
+        
+        </div>
+        </div>
+          
 
-      </Navbar>
-    <div className="container-fluid">
-     
-     <Search />
-  
-    </div>
+      
+        </center>
     </div>
   );}
 }

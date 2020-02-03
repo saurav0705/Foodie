@@ -1,6 +1,7 @@
 .searchbar{
-  opacity: 1;
-  transition-duration: 0.5s;
+  text-align: center;
+  opacity: 0.8;
+  transition-duration: 1s;
   align-self: center;
   background-color: white;
 }
@@ -8,4 +9,60 @@
 .searchbar:focus{
   opacity:1;
   box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title{
+  text-align: center;
+}
+
+.bg-test{
+  background-color: rgb(11, 206, 11);
+}
+
+.test{
+  height: 30px;
+  width: 100%;
+}
+
+
+.intro{
+  margin-top: 10px;
+  padding-top: 20px;
+  
+  
+}
+
+.spin{
+  margin-top: 20px;
+  position: fixed;
+  z-index: 2;
+  top:50%;
+  background-color: yellowgreen;
+  height: 100px;
+  weight:100px;
+}
+
+.image{
+  max-width: 45%;
+  min-width: 300px;
+}
+
+.head{
+  margin-left: 20px;
+}
+
+.main,body{
+  color: darkolivegreen;
+  font: outline;
+  background-color: rgb(166, 255, 166);
+  
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+body {
+  -ms-overflow-style: none;
 }
