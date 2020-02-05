@@ -1,28 +1,41 @@
 import React , {Component} from 'react';
 import { Card,CardImg,CardTitle } from 'reactstrap';
+import Detail from './DetailComponent';
 
 
 class Search extends Component{
     constructor(props){
         super(props);
         this.state = {
-            loading:false
+            results:this.props.results,
+            loading:false,
+            detail: this.props.detail,
+            selectedRecipe:{},
         }
     }
     componentDidMount(){
-        console.log('mounted');
+        //console.log('mounted');
         this.setState({
             loading:this.props.loading
         })
-        console.log('loading------',this.state.loading);
+        //console.log('loading------',this.state.loading);
     }
 
+    
+
     RecipeDetail(recipe){
-        console.log(recipe);
+        //console.log(this.props);
+        this.setState({
+            detail:true,
+            selectedRecipe:recipe
+        })
+        //this.props.detail=true;
+        window.scrollTo(0,0);
+        //this.props.history.push('/detail/');
     }
     renderResult(){
         
-        //console.log(this.props.results.hasOwnProperty('hits'))
+        ////console.log(this.props.results.hasOwnProperty('hits'))
         if(this.props.results.hasOwnProperty('hits'))
         {
             const res = this.props.results.hits.map((result)=>{
@@ -52,14 +65,28 @@ class Search extends Component{
         }
     }
 
+    back(){
+        this.setState({
+           detail:false,
+            selectedRecipe:{}
+        })
+        //this.props.detail=false;
+        window.scrollTo(0,0);
 
+    }
     render(){
-        //console.log(this.state.results.hits[0].recipe.label);
+        ////console.log(this.state.results.hits[0].recipe.label);
         return (
             <>
-            <div className="row mx-8">
-            
+            <div className={this.state.detail ? 'd-none':'row mx-8'}>
             {this.renderResult()}
+            
+            </div>
+            <div className={ !this.state.detail ? 'd-none':'row mx-8'}>
+                <div className="col-12 mt-10 p-4 ">
+                <a href="#" className="btn btn-primary" onClick={()=>{this.back()}}>Back</a>
+                </div>
+                <Detail recipe={this.state.selectedRecipe}/>
             </div>
             <div className={this.props.results.hasOwnProperty('hits') && this.props.results.hits.length !== 0 ? 'd-none':'d-block'}>
             <div className="intro w-100"><center>

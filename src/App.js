@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import './App.css';
 
-import {Navbar ,  NavbarBrand} from 'reactstrap';
+import {Navbar} from 'reactstrap';
 import SearchBar from './components/SearchBarComponent';
 
 class App extends Component {

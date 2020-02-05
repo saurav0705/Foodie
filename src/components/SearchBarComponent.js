@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { MDBCol, MDBIcon } from "mdbreact";
 import fetch from 'isomorphic-fetch';
 import Search from './SearchComponent';
+import { BrowserRouter , Route} from "react-router-dom";
+import Detail from "./DetailComponent";
 
 class SearchBar extends Component{
   constructor(props){
@@ -9,7 +11,8 @@ class SearchBar extends Component{
     this.state= {
       search :'',
       data:{},
-      loading:false
+      loading:false,
+      detail:false,
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,16 +24,17 @@ class SearchBar extends Component{
     
     var code = event.keyCode || event.which;
     if(code === 13) { //13 is the enter keycode
-      console.log(this.state.search);  //Do stuff in here
-      this.setState({loading:true});
+      event.target.blur();
+      //console.log(this.state.search);  //Do stuff in here
+      this.setState({loading:true,detail:false});
       await fetch(`https://api.edamam.com/search?q=${this.state.search}&app_id=1a409636&app_key=832b995a946c06d3b30dab4fabdd1b66`)
         .then(response => response.json())
         .then((res)=>{
-            //console.log("-----------------",res);
-            console.log(res);
+            ////console.log("-----------------",res);
+            //console.log(res);
             this.setState({data:res});
             this.setState({loading:false});
-            console.log(this.state.data)
+            //console.log(this.state.data)
         })
       
     }
@@ -45,7 +49,10 @@ class SearchBar extends Component{
            <div className="test"></div>
     </MDBCol>
     <div className="container-fluid">
-      <Search results={this.state.data} loading={this.state.loading}/> 
+      <BrowserRouter>
+      <Search results={this.state.data} loading={this.state.loading} detail={this.state.detail}/>
+      <Route exact path='/' Component={Detail}/> 
+      </BrowserRouter>
     </div>
     </>
   );
